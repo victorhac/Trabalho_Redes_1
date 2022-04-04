@@ -49,7 +49,7 @@ final class HttpRequest implements Runnable
 		// Get a reference to the socket's input and output streams.
 		InputStream is = socket.getInputStream();
 		//DataOutputStream
-		OutputStream os = socket.getOutputStream();
+		DataOutputStream os = new DataOutputStream(socket.getOutputStream());
 		// Set up input stream filters.
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
@@ -73,7 +73,7 @@ final class HttpRequest implements Runnable
 		String fileName = tokens.nextToken();
 		// Prepend a "." so that file request is within the current directory.
 		fileName = "." + fileName;
-		
+		/*
 		// Open the requested file.
 		FileInputStream fis = null;
 		boolean fileExists = true;
@@ -138,5 +138,7 @@ final class HttpRequest implements Runnable
 			?;
 		}
 		return "application/octet-stream";
+*/
 	}
+
 }
